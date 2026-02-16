@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Aafia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  height:100vh;
+  background:radial-gradient(circle at top,#fff8ef,#f2d1b3,#e6b89c);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+
+/* confetti */
+.confetti{
+  position:absolute;
+  width:6px;
+  height:10px;
+  background:#d4af37;
+  animation:fall 7s linear infinite;
+  opacity:0.85;
+}
+
+@keyframes fall{
+  from{transform:translateY(-10vh) rotate(0deg);}
+  to{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* balloons */
+.balloon{
+  position:absolute;
+  width:26px;
+  height:34px;
+  background:linear-gradient(#f7c59f,#f3b391);
+  border-radius:50%;
+  animation:floatUp 12s linear infinite;
+  opacity:0.9;
+}
+
+.balloon::after{
+  content:"";
+  position:absolute;
+  width:2px;
+  height:20px;
+  background:#bfa58a;
+  left:50%;
+  top:100%;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(110vh);}
+  to{transform:translateY(-20vh);}
+}
+
+.card{
+  background:rgba(255,255,255,0.95);
+  padding:40px 32px;
+  border-radius:28px;
+  text-align:center;
+  max-width:380px;
+  box-shadow:0 30px 70px rgba(0,0,0,0.3);
+  animation:fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:scale(0.94)}
+  to{opacity:1; transform:scale(1)}
+}
+
+.name{
+  font-family:'Playfair Display',serif;
+  font-size:38px;
+  font-weight:600;
+  color:#9b5e3c;
+  margin-bottom:6px;
+}
+
+.subtitle{
+  font-size:14px;
+  color:#7a4a32;
+  letter-spacing:2px;
+  margin-bottom:22px;
+}
+
+.message{
+  font-size:15px;
+  line-height:2;
+  color:#4a2c2a;
+}
+
+.signature{
+  margin-top:30px;
+  font-size:14px;
+  color:#6a3b2e;
+}
+
+.tap{
+  margin-top:14px;
+  font-size:12px;
+  opacity:0.6;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+// confetti
+for(let i=0;i<36;i++){
+  let c=document.createElement("div");
+  c.className="confetti";
+  c.style.left=Math.random()*100+"vw";
+  c.style.animationDuration=(5+Math.random()*4)+"s";
+  document.body.appendChild(c);
+}
+
+// balloons
+for(let i=0;i<5;i++){
+  let b=document.createElement("div");
+  b.className="balloon";
+  b.style.left=Math.random()*90+"vw";
+  b.style.animationDuration=(10+Math.random()*6)+"s";
+  document.body.appendChild(b);
+}
+</script>
+
+<!-- background music -->
+<audio id="bgm" autoplay loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card" onclick="playMusic()">
+  <div class="name">Aafia</div>
+  <div class="subtitle">BIRTHDAY WISHES</div>
+
+  <div class="message">
+    <strong>Happy Birthday, Aafia.</strong><br><br>
+    May life always be gentle with you,<br>
+    and may your efforts be rewarded with success and peace.<br><br>
+    Wishing you a year filled with growth, calm moments,<br>
+    and lasting happiness.
+  </div>
+
+  <div class="signature">
+    — Your brother
+  </div>
+
+  <div class="tap">(Tap anywhere if music doesn’t start)</div>
+</div>
+
+<script>
+function playMusic(){
+  document.getElementById("bgm").play();
+}
+</script>
+
+</body>
+</html>
